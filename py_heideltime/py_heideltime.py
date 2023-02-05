@@ -115,6 +115,9 @@ def _get_timexs(time_ml):
             timex[key] = value
         timexs.append(timex)
 
+    if len(timexs) == 0:
+        return timexs
+    
     # Add spans to timexs.
     text_blocks = re.split("<TIMEX3.*?>(.*?)</TIMEX3>", time_ml)
     running_span = 0
